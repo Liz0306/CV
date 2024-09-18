@@ -1,0 +1,164 @@
+
+body{
+    height: 100vh;
+    margin: 0;
+    background-color: azure;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.darkmode{
+    background-color: rgb(41, 38, 38);
+}
+
+#contenedor{
+    background-color: white;
+    background: url(recursos/dia.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 80px;
+    height: 40px;
+    box-shadow: inset 4px 4px 6px #cecece,
+                inset -4px -4px 6px #fff;
+    margin: 0px auto;
+    margin-top: 350px;
+    border-radius: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+
+.toggle{
+    transition: 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    transform: scale(.7);
+    background-color: linear-gradient(145deg, #d8d8d8, #ffffff);
+    border-radius: 25px;
+    box-shadow: 3px 3px 8px #c4c4c4,
+                -3px -3px 8px #fff;
+}
+
+#contenedor.active{
+    background: url(recursos/noch.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+#contenedor.active .toggle{
+    transition: 0.3s;
+    left: 40px;
+    
+}
+
+
+
+.informacion{ 
+    color:white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background-color:#2c3e50;
+}
+
+.imagen{
+  border-radius: 50px;
+  background: url(paper.gif);
+  background-position: left top;
+  background-repeat: repeat;
+  padding: 20px;
+  width: 120px;
+  height: 155px;
+}
+
+a {
+    color: #0f6faf; 
+    text-decoration: none;
+    font-weight: bold; 
+    transition: color 0.3s ease; 
+}
+
+
+a:hover {
+    color: #e74c3c; 
+    text-decoration: underline; 
+}
+
+
+.contacto{
+    
+  border: 2px ;
+  border-radius: 5px;
+  background-color: white;
+  padding: 20px; 
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  border-left: 6px solid #2c3e50;
+ 
+}
+
+body.darkmode .contacto{
+    background-color: rgb(77, 72, 72);
+    color:white;
+    box-shadow:  0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.Perfil{
+    
+    border-left: 6px solid #2c3e50;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+
+    /*-----estilo de letra------*/
+    font-family: 'Courier New', monospace; /* Estilo de fuente de máquina */
+    font-size: 12px;
+    border-right: 1px solid; /* Cursor parpadeante */
+    white-space: pre-wrap; 
+    overflow: hidden; /* Oculta el contenido hasta que se muestre con el efecto */
+}
+
+body.darkmode .Perfil{
+    background-color: rgb(77, 72, 72);
+    color:white;
+    box-shadow:  0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .Perfil {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .imagen {
+        width: 150px;
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
