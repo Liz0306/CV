@@ -13,7 +13,7 @@ toggle.addEventListener('click', function() {
 
 //------------------------------MAQUINA DE ESCRIBIR TEXTO----------------------------------------------------------
 const texto = 'Estudiante de 6° en ingenieria en sistemas participe en en una feria de proyectos de la universidad donde ayude con el frond-end de una pagina web llamada GasWeb. Estoy a dos años de terminar la carrera con la especialidad de IOT';
-        
+
 // Seleccionamos el contenedor donde se mostrará el texto
 const elementoTexto = document.getElementById('texto');
 
@@ -32,4 +32,29 @@ function escribirTexto() {
 // Llama a la función de escritura cuando se carga la página
 setTimeout(escribirTexto, 25);
 
+//--------------------BARRAS DE HABILIDADES---------------------
+// Función para animar las barras de progreso al hacer scroll
+function animarBarras() {
+    const barras = document.querySelectorAll('.barra');
+    barras.forEach(barra => {
+        const porcentaje = barra.getAttribute('data-porcentaje');
+        barra.style.width = porcentaje; // Cambia el ancho de la barra
+    });
+}
+
+// Función para comprobar si el usuario ha hecho scroll hasta la sección
+function mostrarBarrasAlHacerScroll() {
+    const seccionHabilidades = document.getElementById('habilidades');
+    const posicion = seccionHabilidades.getBoundingClientRect().top;
+    const alturaVentana = window.innerHeight;
+
+    if (posicion < alturaVentana) {
+        animarBarras(); // Si la sección está visible en la ventana, animar las barras
+        window.removeEventListener('scroll', mostrarBarrasAlHacerScroll); // Evita que se vuelva a animar
+    }
+}
+
+// Ejecuta la función al cargar la página y al hacer scroll
+window.addEventListener('scroll', mostrarBarrasAlHacerScroll);
+window.addEventListener('load', mostrarBarrasAlHacerScroll);
 

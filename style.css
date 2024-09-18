@@ -9,6 +9,7 @@ body{
 
 body.darkmode{
     background-color: rgb(41, 38, 38);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #contenedor{
@@ -101,14 +102,89 @@ a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   border-left: 6px solid #2c3e50;
- 
+  transition: background-color 0.3s, color 0.3s;
 }
 
 body.darkmode .contacto{
     background-color: rgb(77, 72, 72);
     color:white;
     box-shadow:  0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, color 0.3s;
 }
+
+.Barra-Habilidades{
+  border: 2px ;
+  border-radius: 5px;
+  background-color: white;
+  padding: 20px; 
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  border-left: 6px solid #2c3e50;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.darkmode .Barra-Habilidades{
+    background-color: rgb(77, 72, 72);
+    color:white;
+    box-shadow:  0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Sección de habilidades */
+.habilidades {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Estilos de los títulos de habilidades */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.habilidad {
+    margin-bottom: 15px;
+}
+
+/* Estilos de la barra de progreso */
+.barra-contenedor {
+    background-color: #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    height: 25px;
+}
+
+.barra {
+    height: 100%;
+    width: 0;
+    background-color: #1ecf59;
+    border-radius: 25px;
+    transition: width 1.5s ease-in-out;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.darkmode .barra {
+    height: 100%;
+    width: 0;
+    background-color: #1e97cf;
+    border-radius: 25px;
+    transition: width 1.5s ease-in-out;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo del porcentaje en la barra */
+.porcentaje {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    color: #fff;
+    font-weight: bold;
+}
+
+
 
 
 
@@ -125,15 +201,15 @@ body.darkmode .contacto{
     /*-----estilo de letra------*/
     font-family: 'Courier New', monospace; /* Estilo de fuente de máquina */
     font-size: 12px;
-    border-right: 1px solid; /* Cursor parpadeante */
-    white-space: pre-wrap; 
     overflow: hidden; /* Oculta el contenido hasta que se muestre con el efecto */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 body.darkmode .Perfil{
     background-color: rgb(77, 72, 72);
     color:white;
     box-shadow:  0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 footer {
