@@ -12,25 +12,34 @@ toggle.addEventListener('click', function() {
 
 
 //------------------------------MAQUINA DE ESCRIBIR TEXTO----------------------------------------------------------
-const texto = 'Estudiante de 6° en ingenieria en sistemas participe en en una feria de proyectos de la universidad donde ayude con el frond-end de una pagina web llamada GasWeb. Estoy a dos años de terminar la carrera con la especialidad de IOT';
+const texto0 = 'Estudiante de 6° en ingenieria en sistemas participe en en una feria de proyectos de la universidad donde ayude con el frond-end de una pagina web llamada GasWeb. Estoy a dos años de terminar la carrera con la especialidad de IOT.';
 
-// Seleccionamos el contenedor donde se mostrará el texto
-const elementoTexto = document.getElementById('texto');
+const texto1 = 'Participe en la elaboración de frond-end y en la documentacion de una pagina web que busca ayudar a los usuarios a mostrar la gasolineria mas cercana a ellos y con las mejores calificaciones dadas por los mismos usuarios.';
 
-// Inicializamos variables
-let index = 0; // Índice para recorrer el texto
+function escribirTexto(texto, elementoID, velocidad) {
+    let index = 0;
+    const elemento = document.getElementById(elementoID);
 
-// Función que va agregando una letra a la vez
-function escribirTexto() {
-    if (index < texto.length) {
-        elementoTexto.innerHTML += texto.charAt(index); // Agrega una letra del texto
-        index++; // Incrementa el índice
-        setTimeout(escribirTexto, 25); // Llama a la función de nuevo después de 100 ms
+    function escribir() {
+        if (index < texto.length) {
+            elemento.innerHTML += texto.charAt(index); // Añade letra por letra
+            index++;
+            setTimeout(escribir, velocidad); // Controla la velocidad del efecto
+        }
     }
+
+    escribir(); // Inicia el proceso de escritura
 }
 
-// Llama a la función de escritura cuando se carga la página
-setTimeout(escribirTexto, 25);
+// Ejecutar el efecto para ambos párrafos
+window.addEventListener('load', () => {
+    escribirTexto(texto0, 'texto0', 50);  // Efecto en el párrafo de Perfil
+    setTimeout(() => {
+        escribirTexto(texto1, 'texto1', 50);  // Efecto en el párrafo de Experiencia
+    }, 3000);  // Espera 3 segundos antes de comenzar el segundo párrafo
+});
+
+
 
 //--------------------BARRAS DE HABILIDADES---------------------
 // Función para animar las barras de progreso al hacer scroll
@@ -57,4 +66,44 @@ function mostrarBarrasAlHacerScroll() {
 // Ejecuta la función al cargar la página y al hacer scroll
 window.addEventListener('scroll', mostrarBarrasAlHacerScroll);
 window.addEventListener('load', mostrarBarrasAlHacerScroll);
+
+//-----------------------CARRUSEL---------------
+
+// Selección de elementos
+const carruselImagenes = document.querySelector('.carrusel-imagenes');
+const slides = document.querySelectorAll('.carrusel-imagenes img');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const indicadores = document.querySelectorAll('.indicadores button');
+
+let indiceActual = 0;
+const totalSlides = slides.length;
+
+// Función para cambiar de imagen
+function mostrarSlide(indice) {
+    carruselImagenes.style.transform = `translateX(${-indice * 100}%)`;
+    indicadores.forEach((indicador, i) => {
+        indicador.classList.toggle('activo', i === indice);
+    });
+}
+
+// Evento para el botón 'Siguiente'
+nextBtn.addEventListener('click', () => {
+    indiceActual = (indiceActual + 1) % totalSlides;
+    mostrarSlide(indiceActual);
+});
+
+// Evento para el botón 'Anterior'
+prevBtn.addEventListener('click', () => {
+    indiceActual = (indiceActual - 1 + totalSlides) % totalSlides;
+    mostrarSlide(indiceActual);
+});
+
+// Evento para los indicadores
+indicadores.forEach((indicador, i) => {
+    indicador.addEventListener('click', () => {
+        indiceActual = i;
+        mostrarSlide(indiceActual);
+    });
+});
 

@@ -160,10 +160,9 @@ h2 {
 .barra {
     height: 100%;
     width: 0;
-    background-color: #1ecf59;
+    background-color: #39e27f;
     border-radius: 25px;
     transition: width 1.5s ease-in-out;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 body.darkmode .barra {
@@ -180,7 +179,7 @@ body.darkmode .barra {
     position: absolute;
     right: 10px;
     top: 3px;
-    color: #fff;
+    color: #312f2f;
     font-weight: bold;
 }
 
@@ -205,12 +204,98 @@ body.darkmode .barra {
     transition: background-color 0.3s, color 0.3s;
 }
 
+.maquina-escribir::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
 body.darkmode .Perfil{
     background-color: rgb(77, 72, 72);
     color:white;
     box-shadow:  0 4px 12px rgba(0, 0, 0, 0.5);
     transition: background-color 0.3s, color 0.3s;
 }
+
+.carrusel {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para las imágenes del carrusel */
+.carrusel-imagenes {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrusel-imagenes img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Botones de navegación */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Estilos de los indicadores */
+.indicadores {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicadores button {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.indicadores .activo {
+    background-color: white;
+}
+
+
+
+
 
 footer {
     background-color: #2c3e50;
